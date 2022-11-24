@@ -12,6 +12,7 @@ const UserModel = mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   facebook: {
     type: String,
