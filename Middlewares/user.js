@@ -19,4 +19,4 @@ const checkUserFields = (req, res, next) => {
     next();
 }
 
-module.exports = {checkUserFileds};
+module.exports = {checkUserFields};
