@@ -14,7 +14,12 @@ const createComment = async (req, res) => {
         console.log(err)
         res.sendStatus(500);
     })
-
 };
 
-module.exports = { createComment };
+const getComments = async (req, res) => {
+    console.log("dhalualiu")
+    const comments = await Comment.find()
+    res.send(comments);
+};
+
+module.exports = { createComment, getComments};
