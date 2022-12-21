@@ -6,6 +6,7 @@ const env = require('dotenv').config();
 const app =express();
 const cors = require('cors')
 const port = process.env.PORT;
+const commentRouter = require("./Routes/comment");
 
 (async()=>{
     try{
@@ -23,6 +24,7 @@ app.get('', ( req, res) => {
     res.send('Hello Cendrillon')
 })
 app.use('/users', userRoutes)
+app.use("/comments", commentRouter)
 
 app.listen(port,() => {
     console.log('le serveur marche')

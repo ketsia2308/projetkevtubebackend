@@ -21,8 +21,6 @@ const createUser = async (req, res) => {
         res.sendStatus(500);
       });
     console.log("dlugflaeuolaeu");
-
-    return res.status(201).send(userCreated);
   } catch (error) {
     return res.status(500, error);
   }
