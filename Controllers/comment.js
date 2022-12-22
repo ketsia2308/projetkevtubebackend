@@ -24,7 +24,9 @@ const getComments = async (req, res) => {
 
 const getVideoComments = async (req, res) => {
     const {video_id} = req.params;
-    const comments = await Comment.find({video_id : video_id});
+    const comments = await Comment.find({video_id : video_id}).populate({
+      path: "user_id"
+    });
     res.send(comments);
 }
 
