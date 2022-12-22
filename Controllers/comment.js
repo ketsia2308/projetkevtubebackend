@@ -22,4 +22,10 @@ const getComments = async (req, res) => {
     res.send(comments);
 };
 
-module.exports = { createComment, getComments};
+const getVideoComments = async (req, res) => {
+    const {video_id} = req.params;
+    const comments = await Comment.find({video_id : video_id});
+    res.send(comments);
+}
+
+module.exports = { createComment, getComments, getVideoComments};
