@@ -13,9 +13,9 @@ const CommentModel = mongoose.Schema(
       required: true,
     },
 
-    video_id:{
+    video_id: {
       type: String,
-      required : true
+      required: true,
     },
 
     sub_comments: [
@@ -23,21 +23,12 @@ const CommentModel = mongoose.Schema(
         user_id: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
         date: Date,
         description: String,
-      }
+      },
     ],
 
-    likes: [
-        {
-            user_id: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
-        }
-    ],
+    likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
 
-    dislikes: [
-        {
-            user_id: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
-        }
-    ]
-
+    dislikes: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
   },
 
   {
@@ -47,4 +38,4 @@ const CommentModel = mongoose.Schema(
 
 const Comment = mongoose.model("comment", CommentModel);
 
-module.exports= Comment;
+module.exports = Comment;
