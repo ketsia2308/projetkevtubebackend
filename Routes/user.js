@@ -8,5 +8,4 @@ userRoutes.get("", (req, res) => res.send("users"));
 userRoutes.get("/:email", getUser);
 userRoutes.post("/create", createUser);
 
-
 module.exports = userRoutes
