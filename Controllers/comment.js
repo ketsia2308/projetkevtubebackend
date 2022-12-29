@@ -40,4 +40,13 @@ const like = async (req, res) => {
   res.sendStatus(204);
 };
 
-module.exports = { createComment, getComments, getVideoComments, like };
+const dislike = async (req, res) => {
+  const {user_id, comment_id} = req.body;
+  if (!user_id || !comment_id) {
+    return res.sendStatus(300);
+  }
+  await Comment.updateOne({_id: comment_id}, { $push: { dislikes: user_id}});
+  res.sendStatus(204);
+}
+
+module.exports = { createComment, getComments, getVideoComments, like, dislike};
